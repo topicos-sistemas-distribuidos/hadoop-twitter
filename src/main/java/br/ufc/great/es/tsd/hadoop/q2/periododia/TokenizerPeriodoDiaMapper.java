@@ -42,7 +42,7 @@ public class TokenizerPeriodoDiaMapper extends Mapper<Object, Text, Text, Text>{
 		
 		if (linha != null) {
 			//Utiliza a funcao split da versao jdk1.4
-			String [] tokens = linha.split("\"");
+			String [] tokens = linha.split("\t"");
 
 			//separa por espacos em branco o token 1 - comentario
 			StringTokenizer itr = new StringTokenizer(tokens[1], " ");			
