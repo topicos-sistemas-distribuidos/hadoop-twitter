@@ -4,7 +4,7 @@
 mvn "-Dmyproperty=TwitterPeriodoDia" clean && mvn compile "-Dmyproperty=TwitterPeriodoDia" && mvn package "-Dmyproperty=TwitterPeriodoDia"
 
 # create input files 
-#mkdir input$1
+mkdir input$1
 echo "My Twitter por periodos do dia - Try $1"
 cp /root/hadoop-twitter/dataset/* input$1
 
