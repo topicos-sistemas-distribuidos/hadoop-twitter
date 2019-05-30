@@ -1,4 +1,4 @@
-package br.ufc.great.es.tsd.hadoop.q2;
+package br.ufc.great.es.tsd.hadoop.q2.local;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -12,6 +12,8 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.StringTokenizer;
+
+import br.ufc.great.es.tsd.hadoop.q2.util.HoraDiaMes;
 
 public class PostagemHoraDiaMes {
 

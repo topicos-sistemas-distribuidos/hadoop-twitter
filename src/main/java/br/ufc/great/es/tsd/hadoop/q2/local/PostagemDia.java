@@ -1,4 +1,4 @@
-package br.ufc.great.es.tsd.hadoop.q2;
+package br.ufc.great.es.tsd.hadoop.q2.local;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

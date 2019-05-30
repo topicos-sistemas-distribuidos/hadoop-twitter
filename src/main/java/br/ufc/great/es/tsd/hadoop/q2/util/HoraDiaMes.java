@@ -1,4 +1,4 @@
-package br.ufc.great.es.tsd.hadoop.q2;
+package br.ufc.great.es.tsd.hadoop.q2.util;
 
 public class HoraDiaMes {
 	
