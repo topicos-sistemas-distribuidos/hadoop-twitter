@@ -35,16 +35,12 @@ public class TokenizerPeriodoDiaMapper extends Mapper<Object, Text, Text, Text>{
 	}
 	
 	public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
-		FileInputStream stream = new FileInputStream("dataset/fragmento.txt");
-		InputStreamReader reader = new InputStreamReader(stream);
-		BufferedReader br = new BufferedReader(reader);
-
 		loadFormattedDates();	
 
 		String linha="";
-		linha = br.readLine();
+		linha = value.toString();
 		
-		while(linha != null) {
+		if (linha != null) {
 			//Utiliza a funcao split da versao jdk1.4
 			String [] tokens = linha.split("\"");
 
@@ -85,8 +81,6 @@ public class TokenizerPeriodoDiaMapper extends Mapper<Object, Text, Text, Text>{
 
 				}				  		
 			}				
-			//passa para a proxima
-			linha = br.readLine();                                   
 		}
 	}
 
