@@ -24,6 +24,7 @@ public class TwitterPeriodoDia {
 		Job job = Job.getInstance(conf, "TwitterPeriodoDia");
 		job.setJarByClass(TwitterPeriodoDia.class);
 		job.setMapperClass(TokenizerPeriodoDiaMapper.class);
+		job.setCombinerClass(TaskPeriodoDiaReducer.class);
 		job.setReducerClass(TaskPeriodoDiaReducer.class);
 
 		job.setOutputKeyClass(Text.class);
