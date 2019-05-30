@@ -11,7 +11,7 @@ public class TaskPeriodoDiaReducer extends Reducer<Text,Text,Text,Text> {
 	public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
 		String cadeia = "";
 		for (Text val : values) {
-			cadeia = cadeia + ", " + val;
+			cadeia = val + "";
 		}
 		result.set(cadeia);
 		context.write(key, result);
