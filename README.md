@@ -21,7 +21,9 @@ $ git clone https://github.com/topicos-sistemas-distribuidos/hadoop-twitter.git
 3. Execute o script de acordo com a feature compilada
 ```
 $./my-periodoDia.sh -turnos
-$./my-postagemDia.s -dias
+$./my-postagemDia.sh -dias
+$./my-postagemHoraDiaMes.sh -porhora
+$./my-postagemDilma.sh -dilma
 ```
 
 Obs: Os scripts precisam de permissão para executar. Por exemplo: chmod +x my-periodoDia.sh
@@ -29,3 +31,7 @@ Obs: Os scripts precisam de permissão para executar. Por exemplo: chmod +x my-p
 Para a execução do my-periodoDia.sh - O output deverá ser uma lista contendo as tags e quantas vezes ela apareceu nas postagens por turno.
 
 Para a execução do my-postagemDia.sh - O output deverá ser uma lista contendo as tags e quantas vezes ela apareceu no dia.
+
+Para a execução do my-postagemHoraDiaMes.sh - O output deverá ser uma lista contendo os twitters por hora em um dado dia.
+
+Para a execução do my-postagemDilma.sh - O output deverá ser uma lista com o conteudo dos twitters que falaram na Dilma.
