@@ -69,20 +69,23 @@ public class TokenizerPeriodoDiaMapper extends Mapper<Object, Text, Text, Text>{
 						}
 
 						if (dataFormatada.before(manha) && dataFormatada.after(noite)) {						
-							word.set("#"+tokensAux[i]);
-							one.set("Noite");
-							context.write(word, one);
-
+							if (!tokensAux[i].equals("")){
+								word.set("#"+tokensAux[i]);
+								one.set("Noite");
+								context.write(word, one);
+							}
 						} else if (dataFormatada.before(tarde) && dataFormatada.after(manha)) {
-							word.set("#"+tokensAux[i]);
-							one.set("Manha");
-							context.write(word, one);
-
+							if (!tokensAux[i].equals("")){
+								word.set("#"+tokensAux[i]);
+								one.set("Manha");
+								context.write(word, one);
+							}
 						} else if (dataFormatada.before(noite) && dataFormatada.after(tarde)) {
-							word.set("#"+tokensAux[i]);
-							one.set("Tarde");
-							context.write(word, one);
-
+							if (!tokensAux[i].equals("")){
+								word.set("#"+tokensAux[i]);
+								one.set("Tarde");
+								context.write(word, one);
+							}
 						}
 
 
