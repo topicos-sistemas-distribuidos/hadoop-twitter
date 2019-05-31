@@ -26,10 +26,9 @@ public class TokenizerPostagensDilmaMapper extends Mapper<Object, Text, Text, Te
 				String myKey = itr.nextToken();
 
 				// verifica se o token contem hashtag
-				if (myKey.contains("Dilma")) {
-					myKey = myKey.replace("\"", "").replace(".", "");
+				if (myKey.contains("Dilma") || myKey.contains("dilma") || myKey.contains("DILMA")) {
 					word.set("Dilma");
-					one.set(myKey);
+					one.set(tokens[1]);
 					context.write(word, one);
 				}
 
