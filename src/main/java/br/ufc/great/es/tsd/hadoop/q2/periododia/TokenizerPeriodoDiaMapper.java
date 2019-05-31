@@ -33,13 +33,13 @@ public class TokenizerPeriodoDiaMapper extends Mapper<Object, Text, Text, Text>{
 			e.printStackTrace();
 		}		
 	}
-	
+
 	public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 		loadFormattedDates();	
 
 		String linha="";
 		linha = value.toString();
-		
+
 		if (linha != null) {
 			//Utiliza a funcao split da versao jdk1.4
 			String [] tokens = linha.split("\"");
@@ -52,34 +52,46 @@ public class TokenizerPeriodoDiaMapper extends Mapper<Object, Text, Text, Text>{
 				String myKey = itr.nextToken();
 
 				//verifica se o token contem hashtag
-				if(myKey.contains("#")) {
-					//separa o token 5 - data
-					String [] tokensData = tokens[5].split(" ");    		
-					
-					//pega apenas o indice 3 - HH:mm:ss	- para comparar se e Manha Tarde ou Noite
-					Date dataFormatada = null;
-					try {
-						dataFormatada = formato2.parse(tokensData[3]);
-					} catch (ParseException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-					if(dataFormatada.before(manha) && dataFormatada.after(noite)) {
-						word.set(myKey);
-						one.set("Noite");
-						context.write(word, one);
-					} else if(dataFormatada.before(tarde) && dataFormatada.after(manha)) {
-						word.set(myKey);
-						one.set("Manha");
-						context.write(word, one);
-					} else if(dataFormatada.before(noite) && dataFormatada.after(tarde)) {
-						word.set(myKey);
-						one.set("Tarde");
-						context.write(word, one);
-					}			    		
+				if (myKey.contains("#")) {
+					myKey = myKey.replace("\"", "").replace(".", "");
+					String[] tokensAux = myKey.split("#");
+					for(int i=0; i<tokensAux.length; i++) {
+						// separa o token 7 - data
+						String[] tokensData = tokens[7].split(" ");
 
-				}				  		
+						//pega apenas o indice 3 - HH:mm:ss	- para comparar se e Manha Tarde ou Noite
+						Date dataFormatada = null;
+						try {
+							dataFormatada = formato2.parse(tokensData[3]);
+						} catch (ParseException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+						if (dataFormatada.before(manha) && dataFormatada.after(noite)) {						
+							word.set("#"+tokensAux[i]);
+							one.set("Noite");
+							context.write(word, one);
+
+						} else if (dataFormatada.before(tarde) && dataFormatada.after(manha)) {
+							word.set("#"+tokensAux[i]);
+							one.set("Manha");
+							context.write(word, one);
+
+						} else if (dataFormatada.before(noite) && dataFormatada.after(tarde)) {
+							word.set("#"+tokensAux[i]);
+							one.set("Tarde");
+							context.write(word, one);
+
+						}
+
+
+					}
+
+
+				}
+
+
 			}				
 		}
 	}
