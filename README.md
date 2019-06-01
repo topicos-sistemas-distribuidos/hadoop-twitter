@@ -24,6 +24,7 @@ $./my-periodoDia.sh -turnos
 $./my-postagemDia.sh -dias
 $./my-postagemHoraDiaMes.sh -porhora
 $./my-postagemDilma.sh -dilma
+$./my-postagemAecio.sh -aecio
 ```
 
 Obs: Os scripts precisam de permissão para executar. Por exemplo: chmod +x my-periodoDia.sh
@@ -35,3 +36,5 @@ Para a execução do my-postagemDia.sh - O output deverá ser uma lista contendo
 Para a execução do my-postagemHoraDiaMes.sh - O output deverá ser uma lista contendo os twitters por hora em um dado dia.
 
 Para a execução do my-postagemDilma.sh - O output deverá ser uma lista com o conteudo dos twitters que falaram na Dilma.
+
+Para a execução do my-postagemAecio.sh - O output deverá ser uma lista com o conteudo dos twitters que falaram na Aecio.
