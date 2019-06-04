@@ -1,9 +1,21 @@
 # hadoop-twitter
-Análise do dataset do Twitter usando o Hadoop
+Análise do dataset do Twitter usando o Hadoop.
+
+O Apache Hadoop é uma framework open-source de componentes que usam uma rede de vários computadores para resolver problemas de Big Data via distribuição de tarefas em um cluster de computadores usando o modelo de Programação MapReduce para distribuir a execução de processos em diversos nós do Cluster criado. 
 
 Features
 ---
 1. Faz a contagem das tags de arquivos texto de uma pasta do twitter
+
+a) Faz a extração das tags mais citadas em um período (manhã, tarde, noite) do dia
+
+b) Faz a extração das tags mais citadas durante um dia
+
+c) Faz a extração das tags mais citada em uma determinada hora do dia
+
+d) Faz a extração das postagens sobre a Dilma no período das eleições 2014
+
+e) Faz a extração das postagens sobre o Aecio no período das eleições 2014
 
 Roteiro de execução
 ---
